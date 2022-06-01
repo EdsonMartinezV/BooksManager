@@ -1,8 +1,6 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
-from rest_framework import viewsets
-from .serializers import BookSerializer
 
 from BooksAttendee.models import Book
 
@@ -35,7 +33,3 @@ def delete(request, book_id):
     book = get_object_or_404(Book, pk=book_id)
     book.delete()
     return HttpResponseRedirect(reverse('BooksAttendee:index'))
-
-class BookViewSet(viewsets.ModelViewSet):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
