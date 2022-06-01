@@ -1,0 +1,11 @@
+<h2>Editar</h2>
+<form action="{% url 'BooksAttendee:update' book.id %}" method="post">
+    {% csrf_token %}
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <label for="title">Titulo: </label>
+    <input type="text" name="title" id="title" value="{{ book.title }}"><br>
+    <label for="decription">Descripcion: </label>
+    <input type="text" name="description" id="description" value="{{ book.description }}"><br>
+    <input type="submit" value="Guardar">
+</form>
+<a href="{% url 'BooksAttendee:delete' book.id %}">Eliminar</a>

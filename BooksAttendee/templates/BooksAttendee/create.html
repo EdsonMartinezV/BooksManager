@@ -1,0 +1,10 @@
+<h2>Crear</h2>
+<form action="{% url 'BooksAttendee:create' %}" method="post">
+    {% csrf_token %}
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <label for="title">Titulo: </label>
+    <input type="text" name="title" id="title"><br>
+    <label for="decription">Descripcion: </label>
+    <input type="text" name="description" id="description"><br>
+    <input type="submit" value="Guardar">
+</form>
